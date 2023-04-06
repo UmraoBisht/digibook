@@ -1,0 +1,17 @@
+.form-box{
+    color: white;
+}
+.form-box input:focus,textarea:focus{
+    border:3px solid rgb(26, 60, 183);
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+    /* border: 2px solid #dadada; */
+    border-radius: 7px;
+    
+}
+
+.form-title{
+color: white;
+font-weight: bold;
+font-size:larger;
+}

@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import Navbar from './components/Navbar';
+import { Routes, Route,Navigate } from 'react-router-dom';
+import About from './components/About';
+import Contact from './components/Contact';
+import NoteState from './context/notes/NoteState';
+import Login from './components/Login';
+import NotFound from './components/NotFound';
+import Home from './components/Home';
+import Alert from './components/Alert';
+import Signup from './components/Signup';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* Wrapping Components Using NoteState Component That Provide Context To Its Children */}
+      <NoteState>
+        <Navbar />
+        <Alert/>
+        <Routes>
+          <Route exact path="/" element={<Navigate to="/home" />} />
+          <Route exact path='/home' element={<Home />} />
+          <Route exact path='/about' element={<About />} />
+          <Route exact path='/contact' element={<Contact />} />
+          <Route exact path='/login' element={<Login />} />
+          <Route exact path='/signup' element={<Signup/>} />
+          <Route exact path='*' element={<NotFound />} />
+        </Routes>
+      </NoteState>
+    </>
   );
 }
 
